@@ -1,0 +1,269 @@
+0000000000000ff4 <reluNEON>:
+
+void reluNEON (uint8_t* in_arr, uint8_t* out_arr, int len, int th){ //with neon registers I read 128 bit at a time
+     ff4:	d107c3ff 	sub	sp, sp, #0x1f0 //free space for stack pointer 496 memory locations
+     ff8:	f9000fe0 	str	x0, [sp, #24] //stores pointer in_arr in sp+24 called x0
+     ffc:	f9000be1 	str	x1, [sp, #16] //stores pointer out_arr in sp+16 called x1
+    1000:	b9000fe2 	str	w2, [sp, #12] //stores len in sp+12 called w2
+    1004:	b9000be3 	str	w3, [sp, #8] //stores threshold number in sp+8 called w3
+	//I have 4 cores (c0,c1,c2,c3); 1 neon block reads 128 bit, 
+	//each of my data is 8 bit so I have 16 neon blocks and 4 will be processed without neon
+	//Each core processes 1 neon block, so 16 data each one of 8 bits;
+        //I associate 4 different variables, one for each neonp
+	uint8x16_t c0in, c1in, c2in, c3in; //each neon 16 variables of 8 bits each one
+	uint8x16_t c0out, c1out, c2out, c3out;
+	int offset = len % 64;
+    1008:	b9400fe0 	ldr	w0, [sp, #12] //loads len in w0 
+    100c:	6b0003e1 	negs	w1, w0 //w1=zero-w0 (I have the negative number of w0 so w1=-len)
+    1010:	12001400 	and	w0, w0, #0x3f //w0 = w0&&63 (I think this is for the module operation of the offset)
+    1014:	12001421 	and	w1, w1, #0x3f //w1 = w1&&63 (offset computation for -len)
+    1018:	5a814400 	csneg	w0, w0, w1, mi  // mi = first; w0=w0 or w0=w1 this depends on mi value (condition)
+												//this is the computation of the module
+    101c:	b901e7e0 	str	w0, [sp, #484] //stores w0=+-len in memory sp+484
+	uint8x16_t threshold = vdupq_n_u8(th);
+    1020:	b9400be0 	ldr	w0, [sp, #8] //loads in w0 the threshold value
+    1024:	b9013fe0 	str	w0, [sp, #316] //stores in memory the value of w0
+
+__extension__ extern __inline uint8x16_t
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vdupq_n_u8 (uint32_t __a)
+{
+  return (uint8x16_t) {__a, __a, __a, __a, __a, __a, __a, __a,
+    //makes 16 variables (each neon contains 16 variables of the input array) each one containing threshold value
+	//after that makes a mask to take only the first 8 bits
+    1028:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    102c:	12001c0f 	and	w15, w0, #0xff //makes a mask between 255 (the first 8 bits) and w0 storing in w15 
+    1030:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1034:	12001c0e 	and	w14, w0, #0xff //makes a mask between 255 (the first 8 bits) and w0 storing in w14 
+    1038:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    103c:	12001c0d 	and	w13, w0, #0xff //makes a mask between 255 (the first 8 bits) and w0 storing in w13 
+    1040:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1044:	12001c0c 	and	w12, w0, #0xff //makes a mask between 255 (the first 8 bits) and w0 storing in w12 
+    1048:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    104c:	12001c0b 	and	w11, w0, #0xff //makes a mask between 255 (the first 8 bits) and w0 storing in w11 
+    1050:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1054:	12001c0a 	and	w10, w0, #0xff //makes a mask between 255 (the first 8 bits) and w0 storing in w10 
+    1058:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    105c:	12001c09 	and	w9, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w9
+    1060:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1064:	12001c08 	and	w8, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w8 
+    1068:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    106c:	12001c07 	and	w7, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w7
+    1070:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1074:	12001c06 	and	w6, w0, #0xff   //makes a mask between 255 (the first 8 bits) and w0 storing in w6
+    1078:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    107c:	12001c05 	and	w5, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w5
+    1080:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1084:	12001c04 	and	w4, w0, #0xff   //makes a mask between 255 (the first 8 bits) and w0 storing in w4
+    1088:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    108c:	12001c03 	and	w3, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w3
+    1090:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    1094:	12001c02 	and	w2, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w2
+    1098:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    109c:	12001c01 	and	w1, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w1
+    10a0:	b9413fe0 	ldr	w0, [sp, #316] //loads in w0 the threshold value
+    10a4:	12001c00 	and	w0, w0, #0xff  //makes a mask between 255 (the first 8 bits) and w0 storing in w0
+
+    10a8:	4e010de0 	dup	v0.16b, w15    //v0[0]=w15 makes a copy of w15 and stores in v0.16b
+    10ac:	4e031dc0 	mov	v0.b[1], w14   //v0[1]=w14
+    10b0:	4e051da0 	mov	v0.b[2], w13   //v0[2]=w13
+    10b4:	4e071d80 	mov	v0.b[3], w12   //v0[3]=w12
+    10b8:	4e091d60 	mov	v0.b[4], w11   //v0[4]=w11
+    10bc:	4e0b1d40 	mov	v0.b[5], w10   //v0[5]=w10
+    10c0:	4e0d1d20 	mov	v0.b[6], w9    //v0[6]=w9
+    10c4:	4e0f1d00 	mov	v0.b[7], w8    //v0[7]=w8
+    10c8:	4e111ce0 	mov	v0.b[8], w7    //v0[8]=w7
+    10cc:	4e131cc0 	mov	v0.b[9], w6    //v0[9]=w6
+    10d0:	4e151ca0 	mov	v0.b[10], w5   //v0[10]=w5
+    10d4:	4e171c80 	mov	v0.b[11], w4   //v0[11]=w4
+    10d8:	4e191c60 	mov	v0.b[12], w3   //v0[12]=w3
+    10dc:	4e1b1c40 	mov	v0.b[13], w2   //v0[13]=w2
+    10e0:	4e1d1c20 	mov	v0.b[14], w1   //v0[14]=w1
+    10e4:	4e1f1c00 	mov	v0.b[15], w0   //v0[15]=w0
+    10e8:	3d8077e0 	str	q0, [sp, #464] //stores q0 in sp+464
+	for (int j=0; j<len/64; j++, in_arr+=64, out_arr+=64){
+    10ec:	b901efff 	str	wzr, [sp, #492] //stores the zero register (wzr) in loc sp+492: int j=0 
+    10f0:	14000060 	b	1270 <reluNEON+0x27c> //branches 1270
+    10f4:	f9400fe0 	ldr	x0, [sp, #24]   //loads in x0 the pointer to in_arr
+    10f8:	f90013e0 	str	x0, [sp, #32]   //stores x0 in sp+32
+											
+__extension__ extern __inline uint8x16_t
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vld1q_u8 (const uint8_t *a)
+{
+  return (uint8x16_t)
+    __builtin_aarch64_ld1v16qi ((const __builtin_aarch64_simd_qi *) a);
+    10fc:	f94013e0 	ldr	x0, [sp, #32] //loads in x0 value in sp+32 which is the pointer to in_arr
+    1100:	3dc00000 	ldr	q0, [x0]      //loads in q0 what the pointer to in_arr points (q0 has the first 16 el of in_arr)
+	    c0in = vld1q_u8(in_arr);
+    1104:	3d806fe0 	str	q0, [sp, #432] //stores q0 in sp+432 (q0 has the first 16 el of in_arr)
+		c1in = vld1q_u8(in_arr + 16); //I have 16 variables of the input array in each neon
+    1108:	f9400fe0 	ldr	x0, [sp, #24] //loads in x0 the pointer to in_arr (sp+24)
+    110c:	91004000 	add	x0, x0, #0x10 //x0=x0+16 --> in_arr+16 I am working with the second core/neon register
+    1110:	f90017e0 	str	x0, [sp, #40] //stores x0 in sp+40
+    1114:	f94017e0 	ldr	x0, [sp, #40] //loads in x0 the value sp+40
+    1118:	3dc00000 	ldr	q0, [x0]      //loads in q0 what the pointer x0 is pointing to (in_arr[16]->in_arr[31])
+    111c:	3d806be0 	str	q0, [sp, #416] //stores q0 in sp+416
+	    c2in = vld1q_u8(in_arr + 32);
+    1120:	f9400fe0 	ldr	x0, [sp, #24] //loads in x0 the pointer to in_arr (sp+24)
+    1124:	91008000 	add	x0, x0, #0x20 //x0=x0+32 --> in_arr+32 I am working with the third core/neon register
+    1128:	f9001be0 	str	x0, [sp, #48] //stores x0 in sp+48
+    112c:	f9401be0 	ldr	x0, [sp, #48] //loads in x0 the value sp+48
+    1130:	3dc00000 	ldr	q0, [x0]      //loads in q0 what the pointer x0 is pointing to (in_arr[32]->in_arr[47])
+    1134:	3d8067e0 	str	q0, [sp, #400] //loads q0 in sp+400
+	    c3in = vld1q_u8(in_arr + 48);
+    1138:	f9400fe0 	ldr	x0, [sp, #24] //loads in x0 the pointer to in_arr (sp+24)
+    113c:	9100c000 	add	x0, x0, #0x30 //x0=x0+48 --> x0=in_arr+48 I am working with the fourth core/neon register
+    1140:	f9001fe0 	str	x0, [sp, #56] //stores x0 in sp+56
+    1144:	f9401fe0 	ldr	x0, [sp, #56] //loads in x0 the value sp+56
+    1148:	3dc00000 	ldr	q0, [x0]      //loads in q0 what the pointer x0 is pointing to (in_arr[48]->in_arr[63])
+    114c:	3d8063e0 	str	q0, [sp, #384] //stores q0 in sp+384
+    1150:	3dc06fe0 	ldr	q0, [sp, #432] //loads in q0 the value sp+432 which are the first 16 el of in_arr
+    1154:	3d8017e0 	str	q0, [sp, #80]  //stores q0 in sp+80
+    1158:	3dc077e0 	ldr	q0, [sp, #464] //loads in q0 the value in sp+464 which is my threshold vector of 128bit
+    115c:	3d8013e0 	str	q0, [sp, #64]  //stores q0 in sp+64: here I have threshold vector
+
+__extension__ extern __inline uint8x16_t
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vmaxq_u8 (uint8x16_t __a, uint8x16_t __b)
+{
+  return (uint8x16_t) __builtin_aarch64_umaxv16qi ((int8x16_t) __a,
+    1160:	3dc017e1 	ldr	q1, [sp, #80]	//loads in q1 the value sp+80 --> q1=first 16 el of in_arr
+    1164:	3dc013e0 	ldr	q0, [sp, #64]	//loads in q0 the value sp+64 --> here I have threshold vector
+    1168:	6e206420 	umax	v0.16b, v1.16b, v0.16b //checks the max between each element of v0 (q0) and v1 (q1) and stores in v0
+														//checks if each element of q1 is greater than threshold
+	
+	    c0out = vmaxq_u8(c0in, threshold);
+    116c:	3d805fe0 	str	q0, [sp, #368] //stores q0 in sp+368 --> in sp+368 there is max vector result
+    1170:	3dc06be0 	ldr	q0, [sp, #416] //loads in q0 sp+416 --> q0 contains (in_arr[16]->in_arr[31])
+    1174:	3d801fe0 	str	q0, [sp, #112] //stores q0 in sp+112 --> sp+112 there is (in_arr[16]->in_arr[31])
+    1178:	3dc077e0 	ldr	q0, [sp, #464] //loads in q0 sp+464 --> threshold vector loaded in q0
+    117c:	3d801be0 	str	q0, [sp, #96]  //stores q0 in sp+96 --> sp+96 there is threshold vector
+    1180:	3dc01fe1 	ldr	q1, [sp, #112] //loads in q1 sp+112 --> sp+112 there is (in_arr[16]->in_arr[31])
+    1184:	3dc01be0 	ldr	q0, [sp, #96]  //loads in q0 sp+96 so q0=threshold vector
+    1188:	6e206420 	umax	v0.16b, v1.16b, v0.16b //checks the max between each element of v0 (q0) and v1 (q1) and stores in v0
+														//checks if each element of q1 is greater than threshold
+	    c1out = vmaxq_u8(c1in, threshold);
+    118c:	3d805be0 	str	q0, [sp, #352] //stores in sp+352 q0 --> in sp+352 there is max vector result
+    1190:	3dc067e0 	ldr	q0, [sp, #400] //loads in q0 sp+400 --> q0 contains (in_arr[32]->in_arr[47])
+    1194:	3d8027e0 	str	q0, [sp, #144] //stores q0 in sp+144 --> sp+144 there is (in_arr[32]->in_arr[47])
+    1198:	3dc077e0 	ldr	q0, [sp, #464] //loads sp+464 in q0 --> q0 contains threshold vector
+    119c:	3d8023e0 	str	q0, [sp, #128] //stores q0 in sp+128 --> sp+128 there is threshold vector
+    11a0:	3dc027e1 	ldr	q1, [sp, #144] //loads in q1 sp+144 --> q1 contains (in_arr[32]->in_arr[47])
+    11a4:	3dc023e0 	ldr	q0, [sp, #128] //loads in q0 sp+128 --> q0 contains threshold vector
+    11a8:	6e206420 	umax	v0.16b, v1.16b, v0.16b //checks the max between each element of v0 (q0) and v1 (q1) and stores in v0
+														//checks if each element of q1 is greater than threshold
+	    c2out = vmaxq_u8(c2in, threshold);
+    11ac:	3d8057e0 	str	q0, [sp, #336] //stores in sp+336 q0 which is result of max element comparison done in 11a8
+    11b0:	3dc063e0 	ldr	q0, [sp, #384] //loads in q0 sp+384 ---> q0 contains (in_arr[48]->in_arr[63])
+    11b4:	3d802fe0 	str	q0, [sp, #176] //stores q0 in sp+176 --> sp+176 contains (in_arr[48]->in_arr[63])
+    11b8:	3dc077e0 	ldr	q0, [sp, #464] //loads in q0 sp+464 --> q0 has threshold vector
+    11bc:	3d802be0 	str	q0, [sp, #160] //stores in sp+160 q0 --> sp+160 has threshold vector
+    11c0:	3dc02fe1 	ldr	q1, [sp, #176] //loads in q1 sp+176 --> q1 contains (in_arr[48]->in_arr[63])
+    11c4:	3dc02be0 	ldr	q0, [sp, #160] //loads in q0 sp+160 --> q0 contains threshold vector
+    11c8:	6e206420 	umax	v0.16b, v1.16b, v0.16b //checks the max between each element of v0 (q0) and v1 (q1) and stores in v0
+														//checks if each element of q1 is greater than threshold
+	    c3out = vmaxq_u8(c3in, threshold);
+    11cc:	3d8053e0 	str	q0, [sp, #320] //stores in sp+320 q0 --> sp+320 contains the result of max vector 11c8
+    11d0:	f9400be0 	ldr	x0, [sp, #16] //loads in x0 sp+16 --> x0 has the pointer to out_arr
+    11d4:	f9006fe0 	str	x0, [sp, #216] //stores in sp+216 q0--> sp+216 has pointer to out_arr
+    11d8:	3dc05fe0 	ldr	q0, [sp, #368] //loads in q0 sp+368 --> q0 has max result of first 16 elements of in_arr
+    11dc:	3d8033e0 	str	q0, [sp, #192] //stores in sp+192 q0
+
+__extension__ extern __inline void
+__attribute__ ((__always_inline__, __gnu_inline__, __artificial__))
+vst1q_u8 (uint8_t *a, uint8x16_t b)
+{
+  __builtin_aarch64_st1v16qi ((__builtin_aarch64_simd_qi *) a,
+    11e0:	3dc033e0 	ldr	q0, [sp, #192] //loads in q0 sp+192
+    11e4:	f9406fe0 	ldr	x0, [sp, #216] //loads in x0 sp+216 --> x0 has pointer to out_arr
+    11e8:	3d800000 	str	q0, [x0] 	   //stores in x0 q0 --> x0 contains max result of first 16 elements of in_arr
+											//saves in first 16 elements of out_arr max result of first 16 elements of in_arr
+	    vst1q_u8(out_arr, c0out);
+	    vst1q_u8(out_arr + 16, c1out);
+    11ec:	f9400be0 	ldr	x0, [sp, #16] //loads in x0 sp+16 --> x0 has the pointer to out_arr
+    11f0:	91004000 	add	x0, x0, #0x10 //x0=x0+16 so moves the pointer to out_arr[16]
+    **11f4:	f9007fe0 	str	x0, [sp, #248] //stores in sp+248 x0 --> sp+248 has pointer to out_arr[16]
+    11f8:	3dc05be0 	ldr	q0, [sp, #352] //loads in q0 sp+352 --> q0 contains max result (ReLU) in_arr[16]->in_arr[31]
+    11fc:	3d803be0 	str	q0, [sp, #224] //stores q0 in sp+224 --> sp+224 has max res (in_arr[16]->in_arr[31])
+    1200:	3dc03be0 	ldr	q0, [sp, #224] //loads in q0  sp+224
+    1204:	f9407fe0 	ldr	x0, [sp, #248] //loads in x0 sp+248 --> x0 has pointer to out_arr[16]
+    1208:	3d800000 	str	q0, [x0]       //stores q0 in x0 --> x0 contains max result of second block 16 elements of in_arr
+											//saves in 16-31 elements of out_arr max result of 16-31 elements of in_arr
+	    vst1q_u8(out_arr + 32, c2out);
+    120c:	f9400be0 	ldr	x0, [sp, #16] //loads in x0 sp+16 --> x0 has the pointer to out_arr
+    1210:	91008000 	add	x0, x0, #0x20 //x0=x0+32 so moves the pointer to out_arr[32]
+    1214:	f9008fe0 	str	x0, [sp, #280] //stores in sp+280 x0 --> sp+280 has pointer to out_arr[32]
+    1218:	3dc057e0 	ldr	q0, [sp, #336] //loads in q0 sp+336 --> q0 contains max result (ReLU) in_arr[32]->in_arr[47]
+    121c:	3d8043e0 	str	q0, [sp, #256] //stores q0 in sp+256 --> sp+256 has max res (in_arr[32]->in_arr[47])
+    1220:	3dc043e0 	ldr	q0, [sp, #256] //loads in q0  sp+256
+    1224:	f9408fe0 	ldr	x0, [sp, #280] //loads in x0 sp+280 --> x0 has pointer to out_arr[32]
+    1228:	3d800000 	str	q0, [x0]       //stores q0 in x0 --> x0 contains max result of third block 16 elements of in_arr
+											//saves in 32-47 elements of out_arr max result of 32-47 elements of in_arr
+	    vst1q_u8(out_arr + 48, c3out);
+    122c:	f9400be0 	ldr	x0, [sp, #16]  //loads in x0 sp+16 --> x0 has the pointer to out_arr
+    1230:	9100c000 	add	x0, x0, #0x30  //x0=x0+48 so moves the pointer to out_arr[48]
+    1234:	f9009be0 	str	x0, [sp, #304] //stores in sp+304 x0 --> sp+280 has pointer to out_arr[48]
+    1238:	3dc053e0 	ldr	q0, [sp, #320] //loads in q0 sp+320 --> q0 contains max result (ReLU) in_arr[48]->in_arr[63]
+    123c:	3d804be0 	str	q0, [sp, #288] //stores q0 in sp+288 --> sp+288 has max res (in_arr[48]->in_arr[63])
+    1240:	3dc04be0 	ldr	q0, [sp, #288] //loads in q0  sp+288
+    1244:	f9409be0 	ldr	x0, [sp, #304] //loads in x0 sp+304 --> x0 has pointer to out_arr[48]
+    1248:	3d800000 	str	q0, [x0]		//stores q0 in x0 --> x0 contains max result of fourth block 16 elements of in_arr
+											//saves in 48-63 elements of out_arr max result of 48-63 elements of in_arr
+	for (int j=0; j<len/64; j++, in_arr+=64, out_arr+=64){
+    124c:	b941efe0 	ldr	w0, [sp, #492]    //loads in w0 sp+492 --> w0 contains j
+    1250:	11000400 	add	w0, w0, #0x1	  //w0=w0+1 --> j++
+    1254:	b901efe0 	str	w0, [sp, #492]    //stores w0 in sp+492 --> sp+492 has the new value of j
+    1258:	f9400fe0 	ldr	x0, [sp, #24]	 //loads in x0 sp+24 --> x0 has in_arr
+    125c:	91010000 	add	x0, x0, #0x40    //x0=x0+64
+    1260:	f9000fe0 	str	x0, [sp, #24]    //stores in sp+24 in_arr+64
+    1264:	f9400be0 	ldr	x0, [sp, #16]    //loads in x0 sp+16 --> x0 contains out_arr
+    1268:	91010000 	add	x0, x0, #0x40    //x0=x0+64
+    126c:	f9000be0 	str	x0, [sp, #16]    //stores in sp+16 out_arr+64
+    1270:	b9400fe0 	ldr	w0, [sp, #12] //loads in w0 sp+12 which is sp+12--> len, so loads w0=len
+    1274:	1100fc01 	add	w1, w0, #0x3f //w1=w0+63 I process 64 variables in each for: in_arr+=64 but w0=-len
+    1278:	7100001f 	cmp	w0, #0x0      //compares w0 with 0, putting in w0 a flag but discards the result of the sub
+    127c:	1a80b020 	csel	w0, w1, w0, lt  // lt = tstop; lt=0-->w0=w0, lt=1-->w0=w1
+    1280:	13067c00 	asr	w0, w0, #6    //w0=w0>>6 shift right 6 bits this is the division with 64 len/64
+    1284:	2a0003e1 	mov	w1, w0        //w1=w0
+    1288:	b941efe0 	ldr	w0, [sp, #492] //loads in w0 the value of sp+492 w0=j
+    128c:	6b01001f 	cmp	w0, w1         //compares w0 with w1: checks if j<len/64
+    1290:	54fff32b 	b.lt	10f4 <reluNEON+0x100>  // b.tstop if lt branches to 10f4
+	}
+	//to process individually remaining elements (not processed during parallelization)
+        uint8_t threshold_plain = th;
+    1294:	b9400be0 	ldr	w0, [sp, #8]	//loads in w0 sp+8 --> w0=th
+    1298:	39073fe0 	strb	w0, [sp, #463] //stores a byte w0 in sp+463
+	for (int j=0; j<offset; j++){
+    129c:	b901ebff 	str	wzr, [sp, #488] //stores zero reg to sp+488 --> int j=0
+    12a0:	14000013 	b	12ec <reluNEON+0x2f8> //branches to 12ec
+		out_arr[j] = in_arr[j]>threshold_plain?in_arr[j]:threshold_plain; }
+    12a4:	b981ebe0 	ldrsw	x0, [sp, #488] //loads register signed word in x0 content sp+488 --> x0 has j
+    12a8:	f9400fe1 	ldr	x1, [sp, #24]		//loads in x1 sp+24 --> x1 has in_arr
+    12ac:	8b000020 	add	x0, x1, x0			//x0=x1+x0 --> x0=in_arr+j examining one element at time
+    12b0:	39400002 	ldrb	w2, [x0]		//loads register byte in w2 content of x0addr --> w2 has in_arr[j]
+    12b4:	b981ebe0 	ldrsw	x0, [sp, #488]  //loads word in x0 sp+488 --> x0=j
+    12b8:	f9400be1 	ldr	x1, [sp, #16]       //loads in x1 out_arr
+    12bc:	8b000020 	add	x0, x1, x0			//out_arr+j
+    12c0:	2a0203e4 	mov	w4, w2				//w4=in_arr[j]
+    12c4:	39473fe3 	ldrb	w3, [sp, #463]  //loads byte in w3 content of sp+463 --> w3=th
+    12c8:	12001c82 	and	w2, w4, #0xff		//w2&&w4 be sure that w2 has 8 bit
+    12cc:	39473fe1 	ldrb	w1, [sp, #463]	//loads register byte in w1 content sp+463 --> w1=th
+    12d0:	6b02007f 	cmp	w3, w2				//compares w2 with w3 checking less significant bit
+    12d4:	1a842021 	csel	w1, w1, w4, cs  // cs = hs, nlast; if w3>w2 w1=w1; if w3<w2 w1=w4
+    12d8:	12001c21 	and	w1, w1, #0xff		//w1&&w1 makes a mask to check
+    12dc:	39000001 	strb	w1, [x0]		//stores byte w1 in x0 --> put the ReLU result (w1) in out_arr[j]
+	for (int j=0; j<offset; j++){
+    12e0:	b941ebe0 	ldr	w0, [sp, #488]		//loads in w0 sp+488 --> w0=j
+    12e4:	11000400 	add	w0, w0, #0x1		//w0=w0+1 --> w0=j++
+    12e8:	b901ebe0 	str	w0, [sp, #488]		//stores in sp+488 j
+    12ec:	b941ebe1 	ldr	w1, [sp, #488] //loads in w1 sp+488 --> sp+488 contains j
+    12f0:	b941e7e0 	ldr	w0, [sp, #484] //loads in w0 sp+484 --> w0 contains offset
+    12f4:	6b00003f 	cmp	w1, w0			//j<offset
+    12f8:	54fffd6b 	b.lt	12a4 <reluNEON+0x2b0>  // b.tstop; if j<offset branches to 12a4
+        //if in_arr[j] is greater than 127 (sign bit=0) I do not change it, else I put the value to 127}
+
+}
+    12fc:	d503201f 	nop						//does nothing
+    1300:	9107c3ff 	add	sp, sp, #0x1f0		//increment stackpointer
+    1304:	d65f03c0 	ret						//return from subroutine
