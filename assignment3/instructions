@@ -1,0 +1,26 @@
+Istruzioni
+The assignment requires to implement a DNN for handwritten digit classification in C language, using an ARM Cortex-A53 as reference processor architecture.
+The reference files and codes can be accessed from your Azure VM typing the following command: 
+
+studente@ML-RefVm-226943:~$ git clone git@gitlab.com:paololoceri/aes_mnist_assignment.git
+
+or downloading it from here  and transferring it to your VM https://unicadrsi.sharepoint.com/sites/Advancedembeddedsystems2020/Documenti%20condivisi/General/3rd_ASSIGNMENT_MNIST.tar.gz
+
+Students are divided in 5 groups. Each students can find his group number on the basis of his/her matriculation number, with groupnumber = matrnumber mod 5.  You will find group-specific files to use in this assignment inside the folder related to your group number. You can disregard folders related to other groups.
+Each student group is assigned with a pre-trained neural network, expressed using the ONNX format. Network parameters, derived from training, are also provided in a 16-bit quantized format as a set of binary files included inside the weights subfolder. The mnist_digits_txt subfolder contains a set of MNIST dataset samples usable for testing the classification accuracy. 
+Students are also provided with a reference C code, to be used as project template. The code is available in the example folder, together with the desciption of the example network. The code package includes the following files: 
+main.c - main function, includes definition of paths to the input files (networks parameters and dataset samples)  
+mnist_only_FC.c/.h  - includes functions related with network initialization and execution
+paramIO.c/.h - includes functions related for data loading from file (txt files are used to input samples, bin files are for parameters)
+linear.c/.h  - includes the implementation of linear fully connected layers
+relu.c/.h - includes the implementation of a ReLU operator
+types.c/.h - data type definitions
+Step 1: Create a linux application project on Xilinx SDK. You can just use a helloworld or an empty project template and then add the C files provided as reference to the project src folder (in case you started from an helloworld template you have to remove helloworld.c from the file to avoid a duplicated definition of the main() function). Test compilation and syntax. Then execute the template on a virtual instance of a A53-based processor using QEMU. (Instructions for creating the project and for emulating execution can be found here Instructions to create, develop and emulate Linux applications on Zynq Ultrascale+ PS in Wiki).
+Please note: a) you have to enable math library adding a -lm to the linker settings, check the instructions in the wiki mentioned above for help. b) input parameters and dataset samples have to be loaded using tftp to the virtual PS, using the same process used to load the .elf executable. We suggest to create a tar.gz with your input files and to transfer them using a single tftp command, check the instructions in the wiki mentioned above for help.
+Step 2: Modify the template network to implement the topology assigned to your matriculation number. Visualize your topology using Netron (https://netron.app/) and change network initialization, connections between the layers and execution accordingly. 
+Step 3: Measure execution time of the network inference. Do not account, within the measurement, for network initialization and input loading.
+Step 4: Submit to the network the examples in your dataset folder corresponding to the last three digits of your matriculation number and note the classification results (percentage values corresponding to different classes) proposed in output.
+Step 5: Prepare a report, describing your process, indicating execution time and classification results. Upload your code and your report. 
+Step 6 (optional): Optimize ReLU and Linear functions, using the techniques presented during the AES course. Report your strategy and your results in the report mentioned in Step 5.
+Top-3 Students achieving lower execution time will receive a bonus: 1st: 4 points - 2nd: 2.5 point - 3rd: 1 point (ex aequo will be evalutated by the teacher)
+Please NOTE: The deadline reported here is for students targeting the first exam session in January. For those that are attending other sessions, the deadline is 48 hours before the session that you will sign up for.
