@@ -1,0 +1,20 @@
+Istruzioni
+This assignment requires the student to create a base microblaze-systems in Vivado, program it using SDK and estimating performance (for different processor configuration) using behavioral simulation in Vivado. 
+Create a block design integrating a Microblaze processor and the following set of peripherals (this simple configuration can be easily obtained using the Vivado Example project wizard - remember enabling Trace Interfacer in the processor configuration to enable easier interpretation of simulation waveforms):
+A GPIO controller, connected to leds
+A UARTlite controller
+Export the system configuration to SDK and create an application project. The application should use for each student a parameter, expressed as a macro, derived by the student's matriculation number (#define INPUT_SIZE SIZEFROMMNUMB+20), where SIZEFROMMNUMB are the last two digits of the student's matriculation number. The application should implement the following tasks:
+Read INPUT_SIZE integers from the UART, using a blocking read primitive that uses polling to check the status of the peripheral, and store them inside an adequate array;
+Read other 3 integers from the UART, using the same blocking primitive; 
+Use the last 3 integers as a kernel of 3 weight and use them to apply a monodimensional convolution on the array storing the INPUT_SIZE data received from the UART. 
+Send the array resulting from convolution to the UART, using a blocking write primitive. 
+Associate the .elf file resulting from the compilation process to the Vivado project and execute behavioral simulation, adding the needed interface signals to monitor instruction fetching and access to data memory and to peripherals. Measure execution time of the main() function, of your function implementing the convolution, and of your functions implementing the receive of the input arrays and the send of the output arrays. Acquire simulation screenshots with cursors to highlight the time interfal
+Change the processor configuration to add a 64 bit multiplier and repeat the experiment, measuring execution times for the new configuration. 
+During the previous step, remember to collect screenshots and relevant data to create an adequate report presenting your results. The student should turn in:
+a .tar.gz archive with the project folder.
+a report including the following sections:
+A practical guide, with commented steps and screenshots, describing the process for creating and programming the systems using the tools
+A commented description of the resulting block design, including memory map description, system components etc...
+A commented description of the implemented application project, including code snippets with related side comments for explaining the code
+Analysis of the main(), convolution(), send() and receive() functions at assembly level, with comments
+A comparison table comparing execution times obtained with the two different processor configurations (with and without multiplier) expressed both in terms of number of cycles and microseconds (considering a 10% clock cycle time increase for the addition of the multiplier)
