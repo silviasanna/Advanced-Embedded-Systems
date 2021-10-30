@@ -1,0 +1,1093 @@
+
+/home/studente/Desktop/assignment1_nomul/assignment1_nomul.sdk/convcode/Debug/convcode.elf:     file format elf32-microblazeel
+/home/studente/Desktop/assignment1_nomul/assignment1_nomul.sdk/convcode/Debug/convcode.elf
+architecture: MicroBlaze, flags 0x00000012:
+EXEC_P, HAS_SYMS
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000094 vaddr 0x00000000 paddr 0x00000000 align 2**2
+         filesz 0x00000028 memsz 0x00000028 flags r-x
+    LOAD off    0x000000bc vaddr 0x00000050 paddr 0x00000050 align 2**2
+         filesz 0x00000c4c memsz 0x00000c50 flags rwx
+    LOAD off    0x00000d08 vaddr 0x00000ca0 paddr 0x00000ca0 align 2**2
+         filesz 0x000000fc memsz 0x00000d20 flags rw-
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .vectors.reset 00000008  00000000  00000000  00000094  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .vectors.sw_exception 00000008  00000008  00000008  0000009c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .vectors.interrupt 00000008  00000010  00000010  000000a4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .vectors.hw_exception 00000008  00000020  00000020  000000b4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .text         00000bdc  00000050  00000050  000000bc  2**2
+                  CONTENTS, ALLOC, LOAD, CODE
+  5 .init         0000003c  00000c2c  00000c2c  00000c98  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .fini         00000020  00000c68  00000c68  00000cd4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .ctors        00000008  00000c88  00000c88  00000cf4  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  8 .dtors        00000008  00000c90  00000c90  00000cfc  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  9 .rodata       00000004  00000c98  00000c98  00000d04  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 10 .sdata2       00000004  00000c9c  00000c9c  00000d08  2**0
+                  ALLOC
+ 11 .data         000000fc  00000ca0  00000ca0  00000d08  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 12 .sdata        00000004  00000d9c  00000d9c  00000e04  2**0
+                  ALLOC
+ 13 .sbss         00000000  00000da0  00000da0  00000e04  2**0
+                  CONTENTS
+ 14 .bss          00000020  00000da0  00000da0  00000e04  2**2
+                  ALLOC
+ 15 .heap         00000800  00000dc0  00000dc0  00000e04  2**0
+                  ALLOC
+ 16 .stack        00000400  000015c0  000015c0  00000e04  2**0
+                  ALLOC
+ 17 .debug_frame  000000bc  00000000  00000000  00000e04  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 18 .debug_info   00000ba4  00000000  00000000  00000ec0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 19 .debug_abbrev 0000021d  00000000  00000000  00001a64  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 20 .debug_aranges 00000058  00000000  00000000  00001c88  2**3
+                  CONTENTS, READONLY, DEBUGGING
+ 21 .debug_ranges 00000028  00000000  00000000  00001ce0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 22 .debug_macro  00002d13  00000000  00000000  00001d08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 23 .debug_line   00000800  00000000  00000000  00004a1b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 24 .debug_str    0000f1f8  00000000  00000000  0000521b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    d  .vectors.reset	00000000 .vectors.reset
+00000008 l    d  .vectors.sw_exception	00000000 .vectors.sw_exception
+00000010 l    d  .vectors.interrupt	00000000 .vectors.interrupt
+00000020 l    d  .vectors.hw_exception	00000000 .vectors.hw_exception
+00000050 l    d  .text	00000000 .text
+00000c2c l    d  .init	00000000 .init
+00000c68 l    d  .fini	00000000 .fini
+00000c88 l    d  .ctors	00000000 .ctors
+00000c90 l    d  .dtors	00000000 .dtors
+00000c98 l    d  .rodata	00000000 .rodata
+00000c9c l    d  .sdata2	00000000 .sdata2
+00000ca0 l    d  .data	00000000 .data
+00000d9c l    d  .sdata	00000000 .sdata
+00000da0 l    d  .sbss	00000000 .sbss
+00000da0 l    d  .bss	00000000 .bss
+00000dc0 l    d  .heap	00000000 .heap
+000015c0 l    d  .stack	00000000 .stack
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    df *ABS*	00000000 /tools/Xilinx/SDK/2019.1/gnu/microblaze/lin/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/../../../../microblaze-xilinx-elf/lib/le/crt0.o
+00000008 l       .vectors.sw_exception	00000000 _vector_sw_exception
+00000010 l       .vectors.interrupt	00000000 _vector_interrupt
+00000020 l       .vectors.hw_exception	00000000 _vector_hw_exception
+00000000 l    df *ABS*	00000000 /tools/Xilinx/SDK/2019.1/gnu/microblaze/lin/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/le/crtbegin.o
+00000c88 l     O .ctors	00000000 __CTOR_LIST__
+00000c90 l     O .dtors	00000000 __DTOR_LIST__
+00000084 l       .text	00000000 deregister_tm_clones
+000000cc l       .text	00000000 register_tm_clones
+000001a8 l       .text	00000000 __do_global_dtors_aux
+00000da0 l     O .bss	00000001 completed.5375
+00000da4 l     O .bss	00000004 dtor_idx.5377
+00000288 l       .text	00000000 frame_dummy
+00000da8 l     O .bss	00000018 object.5387
+00000000 l    df *ABS*	00000000 /tools/Xilinx/SDK/2019.1/gnu/microblaze/lin/bin/../lib/gcc/microblaze-xilinx-elf/8.2.0/le/crtend.o
+00000c8c l     O .ctors	00000000 __CTOR_END__
+0000069c l       .text	00000000 __do_global_ctors_aux
+00000000 l    df *ABS*	00000000 lib_a-impure.o
+00000ca0 l     O .data	000000f0 impure_data
+00000c88 g       .ctors	00000000 ___CTORS_LIST___
+00000d94 g     O .data	00000008 MB_InterruptVectorTable
+00000da0 g       .sbss	00000000 __sbss_start
+00000d9c g     O .data	00000000 .hidden __TMC_END__
+00000da0 g       .sdata	00000000 __sdata_start
+00000c94 g     O .dtors	00000000 .hidden __DTOR_END__
+00000c9c g       .rodata	00000000 __rodata_end
+00000ca0 g       .sdata2	00000000 __sbss2_end
+000002cc g     F .text	00000000 _crtinit
+000015c0 g       .heap	00000000 _heap_end
+00000c98 g     O .rodata	00000004 _global_impure_ptr
+00000dc0 g       .bss	00000000 __bss_end
+000009dc g     F .text	0000016c send
+00000da0 g       .sbss	00000000 __tbss_start
+00000c2c g       .init	00000000 __init
+00000dc0 g       .heap	00000000 _heap_start
+00000da0 g       .sbss	00000000 __sbss_end
+00000c24 g     F .text	00000008 XNullHandler
+00000c88 g       .ctors	00000000 __CTOR_LIST__
+00000ca0 g       .sdata2	00000000 __sbss2_start
+00000440 g     F .text	00000248 __call_exitprocs
+00000000 g     F .vectors.reset	00000000 _start
+00000c98 g       .rodata	00000000 __rodata_start
+00000c08 g     F .text	0000001c XUartLite_RecvByte
+00000da0 g       *ABS*	00000000 _SDA_BASE_
+00000d9c g       .data	00000000 __data_end
+00000688  w    F .text	00000000 _exception_handler
+00000380 g     F .text	00000058 .hidden __mulsi3
+0000077c g     F .text	00000164 convolution
+00000da0 g       .bss	00000000 __bss_start
+00000400 g       *ABS*	00000000 _STACK_SIZE
+00000da0 g       .sbss	00000000 __tdata_start
+00000da0 g       .sbss	00000000 __tdata_end
+000006e4 g     F .text	00000098 main
+00000800 g       *ABS*	00000000 _HEAP_SIZE
+00000050 g     F .text	00000000 _start1
+000015c0 g       .stack	00000000 _stack_end
+00000da0 g       .sdata	00000000 __sdata_end
+00000ca0 g       .sdata2	00000000 __sdata2_start
+00000c90 g       .ctors	00000000 __CTOR_END__
+00000c90 g       .dtors	00000000 ___DTORS_LIST___
+00000c90 g       .dtors	00000000 __DTOR_LIST__
+00000c68 g       .fini	00000000 __fini
+00000d90 g     O .data	00000004 _impure_ptr
+000008e0 g     F .text	000000fc receive
+00000ca0 g       .sdata2	00000000 __sdata2_end
+00000b48 g       .text	00000000 _interrupt_handler
+00000bec g     F .text	0000001c XUartLite_SendByte
+00000c90 g       .ctors	00000000 ___CTORS_END___
+000019c0 g       .stack	00000000 __stack
+000019c0 g       .stack	00000000 _end
+00000dc0 g       .heap	00000000 _heap
+000003d8 g     F .text	00000068 exit
+0000037c g       .text	00000000 _hw_exception_handler
+00000da0 g       .sbss	00000000 __tbss_end
+00000694 g       .text	00000000 _program_init
+00000080 g     F .text	00000000 _exit
+000019c0 g       .stack	00000000 _stack
+00000ca0 g       .data	00000000 __data_start
+0000068c g       .text	00000000 _program_clean
+00000ca0 g       *ABS*	00000000 _SDA2_BASE_
+00000b48 g       .text	000000a4 __interrupt_handler
+
+
+
+Disassembly of section .vectors.reset:
+
+00000000 <_start>:
+   0:	b0000000 	imm	0
+   4:	b8080050 	brai	80	// 50 <_start1>
+
+Disassembly of section .vectors.sw_exception:
+
+00000008 <_vector_sw_exception>:
+   8:	b0000000 	imm	0
+   c:	b8080688 	brai	1672	// 688 <_exception_handler>
+
+Disassembly of section .vectors.interrupt:
+
+00000010 <_vector_interrupt>:
+  10:	b0000000 	imm	0
+  14:	b8080b48 	brai	2888	// b48 <__interrupt_handler>
+
+Disassembly of section .vectors.hw_exception:
+
+00000020 <_vector_hw_exception>:
+  20:	b0000000 	imm	0
+  24:	b808037c 	brai	892	// 37c <_hw_exception_handler>
+
+Disassembly of section .text:
+
+00000050 <_start1>:
+  50:	b0000000 	imm	0
+  54:	31a00da0 	addik	r13, r0, 3488	// da0 <_SDA_BASE_>
+  58:	b0000000 	imm	0
+  5c:	30400ca0 	addik	r2, r0, 3232	// ca0 <_SDA2_BASE_>
+  60:	b0000000 	imm	0
+  64:	302019a0 	addik	r1, r0, 6560
+  68:	b0000000 	imm	0
+  6c:	b9f40260 	brlid	r15, 608	// 2cc <_crtinit>
+  70:	80000000 	or	r0, r0, r0
+  74:	b0000000 	imm	0
+  78:	b9f40360 	brlid	r15, 864	// 3d8 <exit>
+  7c:	30a30000 	addik	r5, r3, 0
+
+00000080 <_exit>:
+  80:	b8000000 	bri	0	// 80 <_exit>
+
+00000084 <deregister_tm_clones>:
+  84:	b0000000 	imm	0
+  88:	30a00d9c 	addik	r5, r0, 3484	// d9c <__TMC_END__>
+  8c:	b0000000 	imm	0
+  90:	30600d9c 	addik	r3, r0, 3484	// d9c <__TMC_END__>
+  94:	88632800 	xor	r3, r3, r5
+  98:	bc03002c 	beqi	r3, 44		// c4
+  9c:	b0000000 	imm	0
+  a0:	30600000 	addik	r3, r0, 0
+  a4:	bc030020 	beqi	r3, 32		// c4
+  a8:	3021ffe4 	addik	r1, r1, -28
+  ac:	f9e10000 	swi	r15, r1, 0
+  b0:	99fc1800 	brald	r15, r3
+  b4:	80000000 	or	r0, r0, r0
+  b8:	e9e10000 	lwi	r15, r1, 0
+  bc:	b60f0008 	rtsd	r15, 8
+  c0:	3021001c 	addik	r1, r1, 28
+  c4:	b60f0008 	rtsd	r15, 8
+  c8:	80000000 	or	r0, r0, r0
+
+000000cc <register_tm_clones>:
+  cc:	b0000000 	imm	0
+  d0:	30a00d9c 	addik	r5, r0, 3484	// d9c <__TMC_END__>
+  d4:	b0000000 	imm	0
+  d8:	30600d9c 	addik	r3, r0, 3484	// d9c <__TMC_END__>
+  dc:	14651800 	rsubk	r3, r5, r3
+  e0:	10801800 	addk	r4, r0, r3
+  e4:	90830001 	sra	r4, r3
+  e8:	90840001 	sra	r4, r4
+  ec:	10c02000 	addk	r6, r0, r4
+  f0:	90c40041 	srl	r6, r4
+  f4:	90c60041 	srl	r6, r6
+  f8:	90c60041 	srl	r6, r6
+  fc:	90c60041 	srl	r6, r6
+ 100:	90c60041 	srl	r6, r6
+ 104:	90c60041 	srl	r6, r6
+ 108:	90c60041 	srl	r6, r6
+ 10c:	90c60041 	srl	r6, r6
+ 110:	90c60041 	srl	r6, r6
+ 114:	90c60041 	srl	r6, r6
+ 118:	90c60041 	srl	r6, r6
+ 11c:	90c60041 	srl	r6, r6
+ 120:	90c60041 	srl	r6, r6
+ 124:	90c60041 	srl	r6, r6
+ 128:	90c60041 	srl	r6, r6
+ 12c:	90c60041 	srl	r6, r6
+ 130:	90c60041 	srl	r6, r6
+ 134:	90c60041 	srl	r6, r6
+ 138:	90c60041 	srl	r6, r6
+ 13c:	90c60041 	srl	r6, r6
+ 140:	90c60041 	srl	r6, r6
+ 144:	90c60041 	srl	r6, r6
+ 148:	90c60041 	srl	r6, r6
+ 14c:	90c60041 	srl	r6, r6
+ 150:	90c60041 	srl	r6, r6
+ 154:	90c60041 	srl	r6, r6
+ 158:	90c60041 	srl	r6, r6
+ 15c:	90c60041 	srl	r6, r6
+ 160:	90c60041 	srl	r6, r6
+ 164:	90c60041 	srl	r6, r6
+ 168:	90c60041 	srl	r6, r6
+ 16c:	10c62000 	addk	r6, r6, r4
+ 170:	90c60001 	sra	r6, r6
+ 174:	bc06002c 	beqi	r6, 44		// 1a0
+ 178:	b0000000 	imm	0
+ 17c:	30600000 	addik	r3, r0, 0
+ 180:	bc030020 	beqi	r3, 32		// 1a0
+ 184:	3021ffe4 	addik	r1, r1, -28
+ 188:	f9e10000 	swi	r15, r1, 0
+ 18c:	99fc1800 	brald	r15, r3
+ 190:	80000000 	or	r0, r0, r0
+ 194:	e9e10000 	lwi	r15, r1, 0
+ 198:	b60f0008 	rtsd	r15, 8
+ 19c:	3021001c 	addik	r1, r1, 28
+ 1a0:	b60f0008 	rtsd	r15, 8
+ 1a4:	80000000 	or	r0, r0, r0
+
+000001a8 <__do_global_dtors_aux>:
+ 1a8:	b0000000 	imm	0
+ 1ac:	e0600da0 	lbui	r3, r0, 3488	// da0 <_SDA_BASE_>
+ 1b0:	bc2300d0 	bnei	r3, 208		// 280
+ 1b4:	b0000000 	imm	0
+ 1b8:	30800c94 	addik	r4, r0, 3220	// c94 <__DTOR_END__>
+ 1bc:	b0000000 	imm	0
+ 1c0:	30a00c90 	addik	r5, r0, 3216	// c90 <__CTOR_END__>
+ 1c4:	b0000000 	imm	0
+ 1c8:	e8600da4 	lwi	r3, r0, 3492	// da4 <dtor_idx.5377>
+ 1cc:	3021ffdc 	addik	r1, r1, -36
+ 1d0:	14852000 	rsubk	r4, r5, r4
+ 1d4:	fa61001c 	swi	r19, r1, 28
+ 1d8:	fac10020 	swi	r22, r1, 32
+ 1dc:	12602000 	addk	r19, r0, r4
+ 1e0:	92640001 	sra	r19, r4
+ 1e4:	92730001 	sra	r19, r19
+ 1e8:	f9e10000 	swi	r15, r1, 0
+ 1ec:	3273ffff 	addik	r19, r19, -1
+ 1f0:	b0000000 	imm	0
+ 1f4:	32c00c90 	addik	r22, r0, 3216	// c90 <__CTOR_END__>
+ 1f8:	16531803 	cmpu	r18, r19, r3 
+ 1fc:	beb20038 	bgeid	r18, 56		// 234
+ 200:	30630001 	addik	r3, r3, 1
+ 204:	10831800 	addk	r4, r3, r3
+ 208:	10842000 	addk	r4, r4, r4
+ 20c:	c884b000 	lw	r4, r4, r22
+ 210:	b0000000 	imm	0
+ 214:	f8600da4 	swi	r3, r0, 3492	// da4 <dtor_idx.5377>
+ 218:	99fc2000 	brald	r15, r4
+ 21c:	80000000 	or	r0, r0, r0
+ 220:	b0000000 	imm	0
+ 224:	e8600da4 	lwi	r3, r0, 3492	// da4 <dtor_idx.5377>
+ 228:	16531803 	cmpu	r18, r19, r3 
+ 22c:	be52ffd8 	bltid	r18, -40		// 204
+ 230:	30630001 	addik	r3, r3, 1
+ 234:	b9f4fe50 	brlid	r15, -432	// 84 <deregister_tm_clones>
+ 238:	80000000 	or	r0, r0, r0
+ 23c:	b0000000 	imm	0
+ 240:	30600000 	addik	r3, r0, 0
+ 244:	be030020 	beqid	r3, 32		// 264
+ 248:	e9e10000 	lwi	r15, r1, 0
+ 24c:	b0000000 	imm	0
+ 250:	30a00d9c 	addik	r5, r0, 3484	// d9c <__TMC_END__>
+ 254:	b000ffff 	imm	-1
+ 258:	b9f4fda8 	brlid	r15, -600	// 0 <_start>
+ 25c:	80000000 	or	r0, r0, r0
+ 260:	e9e10000 	lwi	r15, r1, 0
+ 264:	ea61001c 	lwi	r19, r1, 28
+ 268:	eac10020 	lwi	r22, r1, 32
+ 26c:	30600001 	addik	r3, r0, 1
+ 270:	b0000000 	imm	0
+ 274:	f0600da0 	sbi	r3, r0, 3488	// da0 <_SDA_BASE_>
+ 278:	b60f0008 	rtsd	r15, 8
+ 27c:	30210024 	addik	r1, r1, 36
+ 280:	b60f0008 	rtsd	r15, 8
+ 284:	80000000 	or	r0, r0, r0
+
+00000288 <frame_dummy>:
+ 288:	b0000000 	imm	0
+ 28c:	30600000 	addik	r3, r0, 0
+ 290:	3021ffe4 	addik	r1, r1, -28
+ 294:	be030024 	beqid	r3, 36		// 2b8
+ 298:	f9e10000 	swi	r15, r1, 0
+ 29c:	b0000000 	imm	0
+ 2a0:	30c00da8 	addik	r6, r0, 3496	// da8 <object.5387>
+ 2a4:	b0000000 	imm	0
+ 2a8:	30a00d9c 	addik	r5, r0, 3484	// d9c <__TMC_END__>
+ 2ac:	b000ffff 	imm	-1
+ 2b0:	b9f4fd50 	brlid	r15, -688	// 0 <_start>
+ 2b4:	80000000 	or	r0, r0, r0
+ 2b8:	b9f4fe14 	brlid	r15, -492	// cc <register_tm_clones>
+ 2bc:	80000000 	or	r0, r0, r0
+ 2c0:	e9e10000 	lwi	r15, r1, 0
+ 2c4:	b60f0008 	rtsd	r15, 8
+ 2c8:	3021001c 	addik	r1, r1, 28
+
+000002cc <_crtinit>:
+ 2cc:	2021ffd8 	addi	r1, r1, -40
+ 2d0:	f9e10000 	swi	r15, r1, 0
+ 2d4:	b0000000 	imm	0
+ 2d8:	20c00da0 	addi	r6, r0, 3488	// da0 <_SDA_BASE_>
+ 2dc:	b0000000 	imm	0
+ 2e0:	20e00da0 	addi	r7, r0, 3488	// da0 <_SDA_BASE_>
+ 2e4:	06463800 	rsub	r18, r6, r7
+ 2e8:	bc720014 	blei	r18, 20		// 2fc
+ 2ec:	f8060000 	swi	r0, r6, 0
+ 2f0:	20c60004 	addi	r6, r6, 4
+ 2f4:	06463800 	rsub	r18, r6, r7
+ 2f8:	bc92fff4 	bgti	r18, -12		// 2ec
+ 2fc:	b0000000 	imm	0
+ 300:	20c00da0 	addi	r6, r0, 3488	// da0 <_SDA_BASE_>
+ 304:	b0000000 	imm	0
+ 308:	20e00dc0 	addi	r7, r0, 3520	// dc0 <__bss_end>
+ 30c:	06463800 	rsub	r18, r6, r7
+ 310:	bc720014 	blei	r18, 20		// 324
+ 314:	f8060000 	swi	r0, r6, 0
+ 318:	20c60004 	addi	r6, r6, 4
+ 31c:	06463800 	rsub	r18, r6, r7
+ 320:	bc92fff4 	bgti	r18, -12		// 314
+ 324:	b0000000 	imm	0
+ 328:	b9f4036c 	brlid	r15, 876	// 694 <_program_init>
+ 32c:	80000000 	or	r0, r0, r0
+ 330:	b0000000 	imm	0
+ 334:	b9f408f8 	brlid	r15, 2296	// c2c <__init>
+ 338:	80000000 	or	r0, r0, r0
+ 33c:	20c00000 	addi	r6, r0, 0
+ 340:	20e00000 	addi	r7, r0, 0
+ 344:	b0000000 	imm	0
+ 348:	b9f4039c 	brlid	r15, 924	// 6e4 <main>
+ 34c:	20a00000 	addi	r5, r0, 0
+ 350:	32630000 	addik	r19, r3, 0
+ 354:	b0000000 	imm	0
+ 358:	b9f40910 	brlid	r15, 2320	// c68 <__fini>
+ 35c:	80000000 	or	r0, r0, r0
+ 360:	b0000000 	imm	0
+ 364:	b9f40328 	brlid	r15, 808	// 68c <_program_clean>
+ 368:	80000000 	or	r0, r0, r0
+ 36c:	c9e10000 	lw	r15, r1, r0
+ 370:	30730000 	addik	r3, r19, 0
+ 374:	b60f0008 	rtsd	r15, 8
+ 378:	20210028 	addi	r1, r1, 40
+
+0000037c <_hw_exception_handler>:
+ 37c:	b8000000 	bri	0	// 37c <_hw_exception_handler>
+
+00000380 <__mulsi3>:
+ 380:	00600000 	add	r3, r0, r0
+ 384:	bc05004c 	beqi	r5, 76		// 3d0
+ 388:	bc060048 	beqi	r6, 72		// 3d0
+ 38c:	bea5000c 	bgeid	r5, 12		// 398
+ 390:	88853000 	xor	r4, r5, r6
+ 394:	24a50000 	rsubi	r5, r5, 0
+ 398:	bca60008 	bgei	r6, 8		// 3a0
+ 39c:	24c60000 	rsubi	r6, r6, 0
+ 3a0:	b8000008 	bri	8		// 3a8
+ 3a4:	00a52800 	add	r5, r5, r5
+ 3a8:	90c60041 	srl	r6, r6
+ 3ac:	08e00000 	addc	r7, r0, r0
+ 3b0:	bc07fff4 	beqi	r7, -12		// 3a4
+ 3b4:	be26fff0 	bneid	r6, -16		// 3a4
+ 3b8:	00632800 	add	r3, r3, r5
+ 3bc:	bc44000c 	blti	r4, 12		// 3c8
+ 3c0:	b60f0008 	rtsd	r15, 8
+ 3c4:	80000000 	or	r0, r0, r0
+ 3c8:	b60f0008 	rtsd	r15, 8
+ 3cc:	04630000 	rsub	r3, r3, r0
+ 3d0:	b60f0008 	rtsd	r15, 8
+ 3d4:	20600000 	addi	r3, r0, 0
+
+000003d8 <exit>:
+ 3d8:	3021ffdc 	addik	r1, r1, -36
+ 3dc:	f9e10000 	swi	r15, r1, 0
+ 3e0:	fa610020 	swi	r19, r1, 32
+ 3e4:	12610000 	addk	r19, r1, r0
+ 3e8:	f8b3001c 	swi	r5, r19, 28
+ 3ec:	10c00000 	addk	r6, r0, r0
+ 3f0:	e8b3001c 	lwi	r5, r19, 28
+ 3f4:	b0000000 	imm	0
+ 3f8:	b9f40048 	brlid	r15, 72	// 440 <__call_exitprocs>
+ 3fc:	80000000 	or	r0, r0, r0
+ 400:	b0000000 	imm	0
+ 404:	e8600c98 	lwi	r3, r0, 3224	// c98 <_global_impure_ptr>
+ 408:	e8630028 	lwi	r3, r3, 40
+ 40c:	bc030024 	beqi	r3, 36		// 430
+ 410:	b0000000 	imm	0
+ 414:	e8600c98 	lwi	r3, r0, 3224	// c98 <_global_impure_ptr>
+ 418:	e8630028 	lwi	r3, r3, 40
+ 41c:	b0000000 	imm	0
+ 420:	e8800c98 	lwi	r4, r0, 3224	// c98 <_global_impure_ptr>
+ 424:	10a40000 	addk	r5, r4, r0
+ 428:	99fc1800 	brald	r15, r3
+ 42c:	80000000 	or	r0, r0, r0
+ 430:	e8b3001c 	lwi	r5, r19, 28
+ 434:	b000ffff 	imm	-1
+ 438:	b9f4fc48 	brlid	r15, -952	// 80 <_exit>
+ 43c:	80000000 	or	r0, r0, r0
+
+00000440 <__call_exitprocs>:
+ 440:	3021ffc4 	addik	r1, r1, -60
+ 444:	f9e10000 	swi	r15, r1, 0
+ 448:	fa61002c 	swi	r19, r1, 44
+ 44c:	fac10030 	swi	r22, r1, 48
+ 450:	fae10034 	swi	r23, r1, 52
+ 454:	fb010038 	swi	r24, r1, 56
+ 458:	12610000 	addk	r19, r1, r0
+ 45c:	f8b30040 	swi	r5, r19, 64
+ 460:	f8d30044 	swi	r6, r19, 68
+ 464:	b0000000 	imm	0
+ 468:	e8600c98 	lwi	r3, r0, 3224	// c98 <_global_impure_ptr>
+ 46c:	eac30048 	lwi	r22, r3, 72
+ 470:	b0000000 	imm	0
+ 474:	e8600c98 	lwi	r3, r0, 3224	// c98 <_global_impure_ptr>
+ 478:	30630048 	addik	r3, r3, 72
+ 47c:	f873001c 	swi	r3, r19, 28
+ 480:	b80001d4 	bri	468		// 654
+ 484:	eb160088 	lwi	r24, r22, 136
+ 488:	e8760004 	lwi	r3, r22, 4
+ 48c:	32e3ffff 	addik	r23, r3, -1
+ 490:	b8000160 	bri	352		// 5f0
+ 494:	30800001 	addik	r4, r0, 1
+ 498:	a657001f 	andi	r18, r23, 31
+ 49c:	10602000 	addk	r3, r0, r4
+ 4a0:	be120014 	beqid	r18, 20		// 4b4
+ 4a4:	10630000 	addk	r3, r3, r0
+ 4a8:	3252ffff 	addik	r18, r18, -1
+ 4ac:	be32fffc 	bneid	r18, -4		// 4a8
+ 4b0:	10631800 	addk	r3, r3, r3
+ 4b4:	f8730020 	swi	r3, r19, 32
+ 4b8:	e8730044 	lwi	r3, r19, 68
+ 4bc:	bc030028 	beqi	r3, 40		// 4e4
+ 4c0:	bc180120 	beqi	r24, 288		// 5e0
+ 4c4:	30770020 	addik	r3, r23, 32
+ 4c8:	10631800 	addk	r3, r3, r3
+ 4cc:	10631800 	addk	r3, r3, r3
+ 4d0:	10781800 	addk	r3, r24, r3
+ 4d4:	e8630000 	lwi	r3, r3, 0
+ 4d8:	e8930044 	lwi	r4, r19, 68
+ 4dc:	88641800 	xor	r3, r4, r3
+ 4e0:	bc230100 	bnei	r3, 256		// 5e0
+ 4e4:	30770002 	addik	r3, r23, 2
+ 4e8:	10631800 	addk	r3, r3, r3
+ 4ec:	10631800 	addk	r3, r3, r3
+ 4f0:	10761800 	addk	r3, r22, r3
+ 4f4:	e8630000 	lwi	r3, r3, 0
+ 4f8:	f8730024 	swi	r3, r19, 36
+ 4fc:	e8760004 	lwi	r3, r22, 4
+ 500:	3063ffff 	addik	r3, r3, -1
+ 504:	88771800 	xor	r3, r23, r3
+ 508:	bc230014 	bnei	r3, 20		// 51c
+ 50c:	e8760004 	lwi	r3, r22, 4
+ 510:	3063ffff 	addik	r3, r3, -1
+ 514:	f8760004 	swi	r3, r22, 4
+ 518:	b8000018 	bri	24		// 530
+ 51c:	30770002 	addik	r3, r23, 2
+ 520:	10631800 	addk	r3, r3, r3
+ 524:	10631800 	addk	r3, r3, r3
+ 528:	10761800 	addk	r3, r22, r3
+ 52c:	f8030000 	swi	r0, r3, 0
+ 530:	e8730024 	lwi	r3, r19, 36
+ 534:	bc0300b4 	beqi	r3, 180		// 5e8
+ 538:	e8760004 	lwi	r3, r22, 4
+ 53c:	f8730028 	swi	r3, r19, 40
+ 540:	bc180014 	beqi	r24, 20		// 554
+ 544:	e8980100 	lwi	r4, r24, 256
+ 548:	e8730020 	lwi	r3, r19, 32
+ 54c:	84641800 	and	r3, r4, r3
+ 550:	bc230014 	bnei	r3, 20		// 564
+ 554:	e8730024 	lwi	r3, r19, 36
+ 558:	99fc1800 	brald	r15, r3
+ 55c:	80000000 	or	r0, r0, r0
+ 560:	b800005c 	bri	92		// 5bc
+ 564:	e8980104 	lwi	r4, r24, 260
+ 568:	e8730020 	lwi	r3, r19, 32
+ 56c:	84641800 	and	r3, r4, r3
+ 570:	bc23002c 	bnei	r3, 44		// 59c
+ 574:	1077b800 	addk	r3, r23, r23
+ 578:	10631800 	addk	r3, r3, r3
+ 57c:	10781800 	addk	r3, r24, r3
+ 580:	e8830000 	lwi	r4, r3, 0
+ 584:	e8730024 	lwi	r3, r19, 36
+ 588:	10c40000 	addk	r6, r4, r0
+ 58c:	e8b30040 	lwi	r5, r19, 64
+ 590:	99fc1800 	brald	r15, r3
+ 594:	80000000 	or	r0, r0, r0
+ 598:	b8000024 	bri	36		// 5bc
+ 59c:	1077b800 	addk	r3, r23, r23
+ 5a0:	10631800 	addk	r3, r3, r3
+ 5a4:	10781800 	addk	r3, r24, r3
+ 5a8:	e8830000 	lwi	r4, r3, 0
+ 5ac:	e8730024 	lwi	r3, r19, 36
+ 5b0:	10a40000 	addk	r5, r4, r0
+ 5b4:	99fc1800 	brald	r15, r3
+ 5b8:	80000000 	or	r0, r0, r0
+ 5bc:	e8760004 	lwi	r3, r22, 4
+ 5c0:	e8930028 	lwi	r4, r19, 40
+ 5c4:	88641800 	xor	r3, r4, r3
+ 5c8:	bc23fe9c 	bnei	r3, -356		// 464
+ 5cc:	e873001c 	lwi	r3, r19, 28
+ 5d0:	e8630000 	lwi	r3, r3, 0
+ 5d4:	88761800 	xor	r3, r22, r3
+ 5d8:	bc030014 	beqi	r3, 20		// 5ec
+ 5dc:	b800fe88 	bri	-376		// 464
+ 5e0:	80000000 	or	r0, r0, r0
+ 5e4:	b8000008 	bri	8		// 5ec
+ 5e8:	80000000 	or	r0, r0, r0
+ 5ec:	32f7ffff 	addik	r23, r23, -1
+ 5f0:	bcb7fea4 	bgei	r23, -348		// 494
+ 5f4:	b0000000 	imm	0
+ 5f8:	30600000 	addik	r3, r0, 0
+ 5fc:	bc030060 	beqi	r3, 96		// 65c
+ 600:	e8760004 	lwi	r3, r22, 4
+ 604:	bc230048 	bnei	r3, 72		// 64c
+ 608:	e8760000 	lwi	r3, r22, 0
+ 60c:	bc030040 	beqi	r3, 64		// 64c
+ 610:	e8960000 	lwi	r4, r22, 0
+ 614:	e873001c 	lwi	r3, r19, 28
+ 618:	f8830000 	swi	r4, r3, 0
+ 61c:	bc180014 	beqi	r24, 20		// 630
+ 620:	10b80000 	addk	r5, r24, r0
+ 624:	b000ffff 	imm	-1
+ 628:	b9f4f9d8 	brlid	r15, -1576	// 0 <_start>
+ 62c:	80000000 	or	r0, r0, r0
+ 630:	10b60000 	addk	r5, r22, r0
+ 634:	b000ffff 	imm	-1
+ 638:	b9f4f9c8 	brlid	r15, -1592	// 0 <_start>
+ 63c:	80000000 	or	r0, r0, r0
+ 640:	e873001c 	lwi	r3, r19, 28
+ 644:	eac30000 	lwi	r22, r3, 0
+ 648:	b800000c 	bri	12		// 654
+ 64c:	fad3001c 	swi	r22, r19, 28
+ 650:	ead60000 	lwi	r22, r22, 0
+ 654:	bc36fe30 	bnei	r22, -464		// 484
+ 658:	b8000008 	bri	8		// 660
+ 65c:	80000000 	or	r0, r0, r0
+ 660:	80000000 	or	r0, r0, r0
+ 664:	e9e10000 	lwi	r15, r1, 0
+ 668:	10330000 	addk	r1, r19, r0
+ 66c:	ea61002c 	lwi	r19, r1, 44
+ 670:	eac10030 	lwi	r22, r1, 48
+ 674:	eae10034 	lwi	r23, r1, 52
+ 678:	eb010038 	lwi	r24, r1, 56
+ 67c:	3021003c 	addik	r1, r1, 60
+ 680:	b60f0008 	rtsd	r15, 8
+ 684:	80000000 	or	r0, r0, r0
+
+00000688 <_exception_handler>:
+ 688:	98085800 	bra	r11
+
+0000068c <_program_clean>:
+ 68c:	b60f0008 	rtsd	r15, 8
+ 690:	80000000 	or	r0, r0, r0
+
+00000694 <_program_init>:
+ 694:	b60f0008 	rtsd	r15, 8
+ 698:	80000000 	or	r0, r0, r0
+
+0000069c <__do_global_ctors_aux>:
+ 69c:	3021fff8 	addik	r1, r1, -8
+ 6a0:	fa610004 	swi	r19, r1, 4
+ 6a4:	b0000000 	imm	0
+ 6a8:	32600c8c 	addik	r19, r0, 3212	// c8c <__CTOR_END__>
+ 6ac:	f9e10000 	swi	r15, r1, 0
+ 6b0:	e873fffc 	lwi	r3, r19, -4
+ 6b4:	a883ffff 	xori	r4, r3, -1
+ 6b8:	be04001c 	beqid	r4, 28		// 6d4
+ 6bc:	3273fffc 	addik	r19, r19, -4
+ 6c0:	99fc1800 	brald	r15, r3
+ 6c4:	3273fffc 	addik	r19, r19, -4
+ 6c8:	e8730000 	lwi	r3, r19, 0
+ 6cc:	a883ffff 	xori	r4, r3, -1
+ 6d0:	bc24fff0 	bnei	r4, -16		// 6c0
+ 6d4:	e9e10000 	lwi	r15, r1, 0
+ 6d8:	ea610004 	lwi	r19, r1, 4
+ 6dc:	b60f0008 	rtsd	r15, 8
+ 6e0:	30210008 	addik	r1, r1, 8
+
+000006e4 <main>:
+void convolution (uint64_t *ptry, uint32_t *ptrx, uint32_t *ptrw);
+void receive (uint32_t *ptr, int forsize);
+void send (uint64_t *ptr, int forsize);
+
+int main()
+{ //before calling a function I must save all registers I do not want to lose and above all non-volatile
+ 6e4:	3021ff84 	addik	r1, r1, -124 //(add immediate and keep carry) decrease sp of 124 bytes to allocate program
+ 6e8:	f9e10000 	swi	r15, r1, 0 //stores LS bit of r15 into memory location resulted by adding content of r1 and value 0 (saving r15 in sp + 0bytes; sp+0locations)
+ 6ec:	fa610078 	swi	r19, r1, 120 //stores LS bit r19 into memory location resulted by adding content of r1 and value 120 (saving r19 in sp + 120bytes; sp+30locations) 
+ 6f0:	12610000 	addk	r19, r1, r0 //(add and keep carry) add content r0 to r1 and store in r19
+
+	uint32_t x[INPUT_SIZE]; //integers depends on compilator: we need 32 bit int
+	uint32_t w[kernelsize]; //w is the weight vector
+	uint64_t y[ysize]; //output vector
+	//X
+	receive(x, INPUT_SIZE); //fill x with data in the .txt file received from uart
+ 6f4:	30c00008 	addik	r6, r0, 8	// 8 <_vector_sw_exception>; add value 8 to content r0 and store in r6; r6=8 INPUT_SIZE
+ 6f8:	3073001c 	addik	r3, r19, 28 //add value 28 to content r19 and store in r3
+ 6fc:	10a30000 	addk	r5, r3, r0 //add content r0 to content r3 and store r5
+ 700:	b0000000 	imm	0 //loads 0 into temporary register
+ 704:	b9f401dc 	brlid	r15, 476 // 8e0 <receive>; branch 476 bytes forward (branch at instr 8e0 which is function receive); in r15 I have address of function receive (704+1DC=8e0)
+ 708:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+	//w
+	receive(w, kernelsize); //fill w with data in the .txt file received from uart
+ 70c:	3073003c 	addik	r3, r19, 60 //add value 60 to r19 and store in r3: r3=r19+60
+ 710:	30c00003 	addik	r6, r0, 3 //add 3 to r0 and store in r6: r6=r0+3
+ 714:	10a30000 	addk	r5, r3, r0 //add r0 to r3 and store in r5: r5=r3+r0
+ 718:	b0000000 	imm	0 //loads 0 into temporary register
+ 71c:	b9f401c4 	brlid	r15, 452	// 8e0 <receive>; branch 452 bytes forward (branch at instr 8e0 which is function receive); in r15 I have address of function receive (71c+1c4=8e0)
+ 720:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+	//make convolution
+	convolution (y, x, w); //fill y making convolution between x and w
+ 724:	3093003c 	addik	r4, r19, 60 //add value 60 to content r19 and store in r4: r4=r19+60
+ 728:	30730048 	addik	r3, r19, 72 //add 72 to r19 and store in r3: r3=r19+72
+ 72c:	10e40000 	addk	r7, r4, r0 //add 0 ro content r4 and store in r7: r7=r4+0
+ 730:	3093001c 	addik	r4, r19, 28 //add 28 to content r19 and store in r4: r4=r19+28
+ 734:	10c40000 	addk	r6, r4, r0 //r6=r4+0
+ 738:	10a30000 	addk	r5, r3, r0 //r5=r3+0
+ 73c:	b0000000 	imm	0 //loads 0 into temporary register
+ 740:	b9f4003c 	brlid	r15, 60	// 77c <convolution>; branch 60 bytes forward (branch at instr 77c which is function convolution); in r15 I have address of function convolution(740+3c=77c)
+ 744:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+	//transmit y
+	send(y, ysize); //transmit y to the uart
+ 748:	30730048 	addik	r3, r19, 72 //r3=r19+72
+ 74c:	30c00006 	addik	r6, r0, 6 //r6=6
+ 750:	10a30000 	addk	r5, r3, r0 //r5=r3
+ 754:	b0000000 	imm	0 //loads 0 into temporary register
+ 758:	b9f40284 	brlid	r15, 644	// 9dc <send>; branch 644 bytes forward (branch at instr 9dc which is function send) in r15 I have address of function convolution(758+284=9dc)
+ 75c:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+
+	return 0;
+ 760:	10600000 	addk	r3, r0, r0 //r3=0 r3 contains var returned to main
+
+
+}
+ 764:	e9e10000 	lwi	r15, r1, 0 //loads in r15 the content found in sp
+ 768:	10330000 	addk	r1, r19, r0 //r1=r19
+ 76c:	ea610078 	lwi	r19, r1, 120 //loads in r19 the content found in sp+120
+ 770:	3021007c 	addik	r1, r1, 124 //r1=r1+124
+ 774:	b60f0008 	rtsd	r15, 8 //return from subroutine: branch to r15+8
+ 778:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+
+0000077c <convolution>:
+
+
+void convolution (uint64_t *ptry, uint32_t *ptrx, uint32_t *ptrw){
+ 77c:	3021ffd0 	addik	r1, r1, -48 //allocate 48 bytes for the function: sp-48 bytes
+ 780:	f9e10000 	swi	r15, r1, 0 //stores content of r15 into position made by sum content r1 with 0
+ 784:	fa610020 	swi	r19, r1, 32 //stores content of r19 into position made by sum content r1 with 32
+ 788:	fac10024 	swi	r22, r1, 36 //stores content of r22 into position made by sum content r1 with 36
+ 78c:	fae10028 	swi	r23, r1, 40 //stores content of r23 into position made by sum content r1 with 40
+ 790:	fb01002c 	swi	r24, r1, 44 //stores content of r24 into position made by sum content r1 with 44
+ 794:	12610000 	addk	r19, r1, r0 //r19=r1+r0
+ 798:	f8b30034 	swi	r5, r19, 52 //stores content of r7 into position made by sum content r19 with 52
+ 79c:	f8d30038 	swi	r6, r19, 56 //stores content of r6 into position made by sum content r19 with 56
+ 7a0:	f8f3003c 	swi	r7, r19, 60 //stores content of r7 into position made by sum content r19 with 60
+	for (int j=0; j<ysize; j++){
+ 7a4:	f813001c 	swi	r0, r19, 28 //stores content of r0 into position made by sum content r19 with 28
+ 7a8:	b8000100 	bri	256		// 8a8; branch immediately to 256 bytes forward
+		ptry[j] = (ptrx[j]*ptrw[0]) + (ptrx[j+1]*ptrw[1]) + (ptrx[j+2]*ptrw[2]);
+ 7ac:	e873001c 	lwi	r3, r19, 28 //loads in r3 the content found in r19+28
+ 7b0:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 7b4:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 7b8:	10830000 	addk	r4, r3, r0 //r4=r3+0
+ 7bc:	e8730038 	lwi	r3, r19, 56 //loads in r3 the content found in r19+56
+ 7c0:	10632000 	addk	r3, r3, r4 //r3=r3+r4
+ 7c4:	e8830000 	lwi	r4, r3, 0 //loads in r4 the content found in r3+0
+ 7c8:	e873003c 	lwi	r3, r19, 60 //loads in r3 the content found in r19+60
+ 7cc:	e8630000 	lwi	r3, r3, 0 //loads in r3 the content found in r3
+ 7d0:	10c30000 	addk	r6, r3, r0 //r6=r3
+ 7d4:	10a40000 	addk	r5, r4, r0 //r5=r4
+ 7d8:	b000ffff 	imm	-1 //loads -1 into temporary register
+ 7dc:	b9f4fba4 	brlid	r15, -1116	// 380 <__mulsi3>; ; branch -1116 bytes forward (branch at instr 380 which is function mulsi3) in r15 I have address of function mulsi3 (no mul in the hardware, this is the only way to perform it)
+ 7e0:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ 7e4:	13030000 	addk	r24, r3, r0 //r24=r3
+ 7e8:	e873001c 	lwi	r3, r19, 28 //loads in r3 the content found in r19+28
+ 7ec:	30630001 	addik	r3, r3, 1 //r3=r3+1
+ 7f0:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 7f4:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 7f8:	10830000 	addk	r4, r3, r0 //r4=r3
+ 7fc:	e8730038 	lwi	r3, r19, 56 //loads in r3 the content found in r19+56
+ 800:	10632000 	addk	r3, r3, r4 //r3=r3+r4
+ 804:	e8830000 	lwi	r4, r3, 0 //loads in r3 the content found in r3
+ 808:	e873003c 	lwi	r3, r19, 60 //loads in r3 the content found in r19+60
+ 80c:	30630004 	addik	r3, r3, 4 //r3=r3+4
+ 810:	e8630000 	lwi	r3, r3, 0 //loads in r3 the content found in r3
+ 814:	10c30000 	addk	r6, r3, r0 //r6=r3
+ 818:	10a40000 	addk	r5, r4, r0 //r5=r4
+ 81c:	b000ffff 	imm	-1 //loads -1 into temporary register
+ 820:	b9f4fb60 	brlid	r15, -1184	// 380 <__mulsi3>; branch -1184 bytes forward (branch at instr 380 which is function mulsi3) in r15 I have address of function mulsi3
+ 824:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ 828:	13181800 	addk	r24, r24, r3 //r24=r24+r3
+ 82c:	e873001c 	lwi	r3, r19, 28 //loads in r3 the content found in r19+28
+ 830:	30630002 	addik	r3, r3, 2 //r3=r3+2
+ 834:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 838:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 83c:	10830000 	addk	r4, r3, r0 //r4=r3
+ 840:	e8730038 	lwi	r3, r19, 56 //loads in r3 the content found in r19+56
+ 844:	10632000 	addk	r3, r3, r4 //r3=r3+r4
+ 848:	e8830000 	lwi	r4, r3, 0 //loads in r3 the content found in r3
+ 84c:	e873003c 	lwi	r3, r19, 60 //loads in r3 the content found in r19+60
+ 850:	30630008 	addik	r3, r3, 8 //r3=r3+8
+ 854:	e8630000 	lwi	r3, r3, 0 //loads in r3 the content found in r3
+ 858:	10c30000 	addk	r6, r3, r0 //r6=r3
+ 85c:	10a40000 	addk	r5, r4, r0 //r5=r4
+ 860:	b000ffff 	imm	-1 //loads -1 into temporary register
+ 864:	b9f4fb1c 	brlid	r15, -1252	// 380 <__mulsi3>; branch -1252 bytes forward (branch at instr 380 which is function mulsi3) in r15 I have address of function mulsi3
+ 868:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ 86c:	10981800 	addk	r4, r24, r3 //r4=r24+r3
+ 870:	e873001c 	lwi	r3, r19, 28 //loads in r3 the content found in r19+28
+ 874:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 878:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 87c:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 880:	10a30000 	addk	r5, r3, r0 //r5=r3
+ 884:	e8730034 	lwi	r3, r19, 52 //loads in r3 the content found in r19+52
+ 888:	10632800 	addk	r3, r3, r5 //r3=r3+r5
+ 88c:	12c40000 	addk	r22, r4, r0 //r22=r4
+ 890:	12e00000 	addk	r23, r0, r0 //r23=0
+ 894:	fac30000 	swi	r22, r3, 0 //r22=r3
+ 898:	fae30004 	swi	r23, r3, 4 //r23=r3+4
+	for (int j=0; j<ysize; j++){
+ 89c:	e873001c 	lwi	r3, r19, 28 //loads in r3 the content found in r19+28
+ 8a0:	30630001 	addik	r3, r3, 1 //r3=r3+1
+ 8a4:	f873001c 	swi	r3, r19, 28 //r3=r19+28
+ 8a8:	e893001c 	lwi	r4, r19, 28 //loads in r4 the content found in r19+28
+ 8ac:	30600005 	addik	r3, r0, 5 //r3=r0+5
+ 8b0:	16441801 	cmp	r18, r4, r3 //r18=r4-r3
+ 8b4:	bcb2fef8 	bgei	r18, -264		// 7ac; if r18>=0 --> branch to instruction loaded at location -264
+	}
+}
+ 8b8:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ 8bc:	e9e10000 	lwi	r15, r1, 0 //loads in r15 the content found in sp
+ 8c0:	10330000 	addk	r1, r19, r0 //r1=r19 sp has content of r19
+ 8c4:	ea610020 	lwi	r19, r1, 32 //loads in r19 the content found in sp+32
+ 8c8:	eac10024 	lwi	r22, r1, 36 //loads in r22 the content found in sp+36
+ 8cc:	eae10028 	lwi	r23, r1, 40 //loads in r23 the content found in sp+40
+ 8d0:	eb01002c 	lwi	r24, r1, 44 //loads in r24 the content found in sp+44
+ 8d4:	30210030 	addik	r1, r1, 48 //r1=r1+48 increment sp of 38
+ 8d8:	b60f0008 	rtsd	r15, 8 //return from subroutine: branch to r15+8
+ 8dc:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+
+000008e0 <receive>:
+
+void receive (uint32_t *ptrarray, int forsize){ //this is only to send one byte;
+ 8e0:	3021fff0 	addik	r1, r1, -16 //decrement sp of 16 bytes to allocate space for new function
+ 8e4:	f9e10000 	swi	r15, r1, 0 //stores content of r15 into position made by sum content r1 with 0
+ 8e8:	fa61000c 	swi	r19, r1, 12 //stores content of r19 into position made by sum content r1 with 12
+ 8ec:	12610000 	addk	r19, r1, r0 //r19=r1+r0
+ 8f0:	f8b30014 	swi	r5, r19, 20 //stores content of r5 into position made by sum content r19 with 20
+ 8f4:	f8d30018 	swi	r6, r19, 24 //stores content of r6 into position made by sum content r19 with 24
+	//if I want to send more bytes an internal for is needed with also a shift in the ith element each byte
+	for (int i=0; i<forsize; i++){
+ 8f8:	f8130004 	swi	r0, r19, 4 //stores content of r0 into position made by sum content r0 with 4
+ 8fc:	b80000b4 	bri	180		// 9b0; branch immediately to instruction located 180 bytes forward (9b0)
+		for (int j=0; j<4; j++){
+ 900:	f8130008 	swi	r0, r19, 8 //stores content of r0 into position made by sum content r19 with 8
+ 904:	b8000090 	bri	144		// 994; branch immediately to instruction located 144 bytes forward (994)
+			ptrarray[i] += (XUartLite_RecvByte(UART_BASE_ADDRESS)) << (j*8);
+ 908:	b0004060 	imm	16480 //loads 16480 into temporary register
+ 90c:	30a00000 	addik	r5, r0, 0 //r5=r0+0 --> r5=0
+ 910:	b0000000 	imm	0 //loads 0 into temporary register
+ 914:	b9f402f4 	brlid	r15, 756	// c08 <XUartLite_RecvByte>; branch 756 bytes forward (branch at instr c08 which is function XuartLite_RecvByte
+ 918:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ 91c:	10830000 	addk	r4, r3, r0 //r4=r3
+ 920:	e8730008 	lwi	r3, r19, 8 //loads in r3 the content found in r19+8
+ 924:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 928:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 92c:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 930:	a643001f 	andi	r18, r3, 31 //r18=r3&31
+ 934:	10a02000 	addk	r5, r0, r4 //r5=0+r4
+ 938:	be120014 	beqid	r18, 20		// 94c; if r18=0 --> branch immediately to instruction located at 20 (94c) with delay
+ 93c:	10a50000 	addk	r5, r5, r0 //r5=r5 it is a nop instruction to make delay
+ 940:	3252ffff 	addik	r18, r18, -1 //r18=r18-1
+ 944:	be32fffc 	bneid	r18, -4		// 940; if r18!=0 --> branch immediately to instruction located at -4 (940) with delay
+ 948:	10a52800 	addk	r5, r5, r5 //r5=r5+r5 nop operation to make delay
+ 94c:	e8730004 	lwi	r3, r19, 4 //loads in r3 the content found in r19+4
+ 950:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 954:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 958:	10830000 	addk	r4, r3, r0 //r4=r3
+ 95c:	e8730014 	lwi	r3, r19, 20 //loads in r3 the content found in r19+20
+ 960:	10632000 	addk	r3, r3, r4 //r3=r3+r4 --> r3=r3+r3
+ 964:	e8830000 	lwi	r4, r3, 0 //loads in r4 the content found in r3
+ 968:	e8730004 	lwi	r3, r19, 4 //loads in r3 the content found in r19+4
+ 96c:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 970:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ 974:	10c30000 	addk	r6, r3, r0 //r6=r3
+ 978:	e8730014 	lwi	r3, r19, 20 //loads in r3 the content found in r19+20
+ 97c:	10633000 	addk	r3, r3, r6 //r3=r3+r6
+ 980:	10842800 	addk	r4, r4, r5 //r4=r4+r5
+ 984:	f8830000 	swi	r4, r3, 0 //stores content of r4 into position made by sum content r3 with 0
+		for (int j=0; j<4; j++){
+ 988:	e8730008 	lwi	r3, r19, 8 //loads in r3 the content found in r19+8
+ 98c:	30630001 	addik	r3, r3, 1 //r3=r3+1
+ 990:	f8730008 	swi	r3, r19, 8 //stores content of r3 into position made by sum content r19 with 8
+ 994:	e8930008 	lwi	r4, r19, 8 //loads in r4 the content found in r19+8
+ 998:	30600003 	addik	r3, r0, 3 //r3=3
+ 99c:	16441801 	cmp	r18, r4, r3 //r18=r4-r3
+ 9a0:	bcb2ff68 	bgei	r18, -152		// 908; if r18>=0 --> branch to instruction loaded at location -152
+	for (int i=0; i<forsize; i++){
+ 9a4:	e8730004 	lwi	r3, r19, 4 //loads in r3 the content found in r19+4
+ 9a8:	30630001 	addik	r3, r3, 1 //r3=r3+1
+ 9ac:	f8730004 	swi	r3, r19, 4 //stores content of r3 into position made by sum content r19 with 4
+ 9b0:	e8930004 	lwi	r4, r19, 4 //loads in r4 the content found in r19+4
+ 9b4:	e8730018 	lwi	r3, r19, 24 //loads in r3 the content found in r19+24
+ 9b8:	16432001 	cmp	r18, r3, r4 //r18=r3-r4
+ 9bc:	bc52ff44 	blti	r18, -188		// 900; if r18<=0 --> branch immediately to instruction at location -188
+			//mask because if we take a var with more than 8 bit I filter it
+		}
+
+	}
+}
+ 9c0:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ 9c4:	e9e10000 	lwi	r15, r1, 0 //loads in r15 the content of sp
+ 9c8:	10330000 	addk	r1, r19, r0 //r1=r19
+ 9cc:	ea61000c 	lwi	r19, r1, 12 //loads in r19 the content of sp+12
+ 9d0:	30210010 	addik	r1, r1, 16 //r1=r1+16
+ 9d4:	b60f0008 	rtsd	r15, 8 //return from subroutine: branch to r15+8 with delay
+ 9d8:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+
+000009dc <send>:
+
+void send (uint64_t *ptrarray, int forsize) {
+ 9dc:	3021ffe4 	addik	r1, r1, -28 //sp=sp-18 free 18 bytes for memorize this function
+ 9e0:	f9e10000 	swi	r15, r1, 0 //stores content of r15 into position made by sum content r1 with 0
+ 9e4:	fa610010 	swi	r19, r1, 16 //stores content of r19 into position made by sum content r1 with 16
+ 9e8:	fac10014 	swi	r22, r1, 20 //stores content of r22 into position made by sum content r1 with 20
+ 9ec:	fae10018 	swi	r23, r1, 24 //stores content of r23 into position made by sum content r1 with 24
+ 9f0:	12610000 	addk	r19, r1, r0 //r19=r1
+ 9f4:	f8b30020 	swi	r5, r19, 32 //stores content of r5 into position made by sum content r19 with 32
+ 9f8:	f8d30024 	swi	r6, r19, 36 //stores content of r16 into position made by sum content r19 with 36
+	for (int i=0; i<forsize; i++){
+ 9fc:	f8130004 	swi	r0, r19, 4 //stores content of r0 into position made by sum content r19 with 4; i=0
+ a00:	b8000114 	bri	276		// b14; branch immediately to 276 bytes forward
+		for (int j=0; j<8; j++) { //y is 64bit and uart can accept only 8 bit each time
+ a04:	f8130008 	swi	r0, r19, 8 //stores content of r0 into position made by sum content r19 with 4; j=0
+ a08:	b80000f0 	bri	240		// af8; branch immediately to 240 bytes forward
+			uint8_t data = ptrarray[i] >> (j*8);
+ a0c:	e8730004 	lwi	r3, r19, 4 //loads in r3 the content found in r19+4
+ a10:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ a14:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ a18:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ a1c:	10830000 	addk	r4, r3, r0 //r3=r3
+ a20:	e8730020 	lwi	r3, r19, 32 //loads in r3 the content found in r19+32
+ a24:	10632000 	addk	r3, r3, r4 //r3=r3+r4 --> r3=r3+r3
+ a28:	e8830000 	lwi	r4, r3, 0 //loads in r4 the content found in r3
+ a2c:	e8a30004 	lwi	r5, r3, 4 //loads in r5 the content found in r3+4
+ a30:	e8730008 	lwi	r3, r19, 8 //loads in r3 the content found in r19+8
+ a34:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ a38:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ a3c:	10631800 	addk	r3, r3, r3 //r3=r3+r3
+ a40:	a4c30020 	andi	r6, r3, 32 //r18=r3&32
+ a44:	bc060028 	beqi	r6, 40		// a6c; if r6=0 branch immediately to instruction loaded 40 bytes forward (a6c)
+ a48:	a643001f 	andi	r18, r3, 31 //r18=r3&31
+ a4c:	12c02800 	addk	r22, r0, r5 //r22=r0+r5=r5
+ a50:	be120014 	beqid	r18, 20		// a64;  if r18=0 --> branch immediately to instruction located at 20 (a64) with delay
+ a54:	12d60000 	addk	r22, r22, r0 //r22=r22 nop instruction to make delay
+ a58:	3252ffff 	addik	r18, r18, -1 //r18=r18-1
+ a5c:	be32fffc 	bneid	r18, -4		// a58; if r18!=0 --> branch immediately to instruction located at -4 (a58) with delay
+ a60:	92d60041 	srl	r22, r22 //shift content r22 one bit to the right and store in r22
+ a64:	12e00000 	addk	r23, r0, r0 //r23=0
+ a68:	b8000064 	bri	100		// acc; branch immediately to location 100 bytes forward (acc)
+ a6c:	11052800 	addk	r8, r5, r5 //r8=r5+r5
+ a70:	a8e3ffff 	xori	r7, r3, -1 //r3=r7XOR(-1)
+ a74:	a647001f 	andi	r18, r7, 31 //r18=r7&31
+ a78:	10c04000 	addk	r6, r0, r8 //r6=r0+r8
+ a7c:	be120014 	beqid	r18, 20		// a90  if r18=0 --> branch immediately to instruction located at 20 (a90) with delay
+ a80:	10c60000 	addk	r6, r6, r0 //r6=r6 nop instruction to make delay
+ a84:	3252ffff 	addik	r18, r18, -1 //r18=r18-1
+ a88:	be32fffc 	bneid	r18, -4		// a84;  if r18!=0 --> branch immediately to instruction located at -4 (a84) with delay
+ a8c:	10c63000 	addk	r6, r6, r6 //r6=r6+r6
+ a90:	a643001f 	andi	r18, r3, 31 //r18=r3&31
+ a94:	12c02000 	addk	r22, r0, r4 //r22=r4
+ a98:	be120014 	beqid	r18, 20		// aac  if r18=0 --> branch immediately to instruction located at 20 (aac) with delay
+ a9c:	12d60000 	addk	r22, r22, r0 //r22=r22 nop to make delay
+ aa0:	3252ffff 	addik	r18, r18, -1 //r18=r18-1
+ aa4:	be32fffc 	bneid	r18, -4		// aa0;  if r18!=0 --> branch immediately to instruction located at -4 (aa0) with delay
+ aa8:	92d60041 	srl	r22, r22 //shift content r22 one bit to the right and store in r22
+ aac:	82c6b000 	or	r22, r6, r22 //r22=r6or22
+ ab0:	a643001f 	andi	r18, r3, 31 //r18=r3&31
+ ab4:	12e02800 	addk	r23, r0, r5 //r23=r5
+ ab8:	be120014 	beqid	r18, 20		// acc  if r18=0 --> branch immediately to instruction located at 20 (acc) with delay
+ abc:	12f70000 	addk	r23, r23, r0 //r23=r23 nop operation to make delay
+ ac0:	3252ffff 	addik	r18, r18, -1 //r18=r18-1
+ ac4:	be32fffc 	bneid	r18, -4		// ac0;  if r18!=0 --> branch immediately to instruction located at -4 (ac0) with delay
+ ac8:	92f70041 	srl	r23, r23 //shift content r23 one bit to the right and store in r23
+ acc:	f2d3000c 	sbi	r22, r19, 12 //store content of least significant byte r22 into memory location at address (r19+r12)
+			XUartLite_SendByte(UART_BASE_ADDRESS, data);
+ ad0:	e073000c 	lbui	r3, r19, 12 //stores in LS byte of r3 a byte from location ((content r19)+12)
+ ad4:	10c30000 	addk	r6, r3, r0 //r6=r3
+ ad8:	b0004060 	imm	16480 //loads 16480 into temporary register
+ adc:	30a00000 	addik	r5, r0, 0 //r5=0
+ ae0:	b0000000 	imm	0 //loads 0 into temporary register
+ ae4:	b9f40108 	brlid	r15, 264	// bec <XUartLite_SendByte>; branch 264 bytes forward (branch at instr bec which is function XuartLite_SendByte
+ ae8:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+		for (int j=0; j<8; j++) { //y is 64bit and uart can accept only 8 bit each time
+ aec:	e8730008 	lwi	r3, r19, 8 //loads in r3 the content found in r19+8
+ af0:	30630001 	addik	r3, r3, 1 //r3=r3+1
+ af4:	f8730008 	swi	r3, r19, 8 //stores content of r3 into position made by sum content r19 with 8
+ af8:	e8930008 	lwi	r4, r19, 8 //loads in r4 the content found in r19+8
+ afc:	30600007 	addik	r3, r0, 7 //r3=7
+ b00:	16441801 	cmp	r18, r4, r3 //r18=r4-r3
+ b04:	bcb2ff08 	bgei	r18, -248		// a0c; if r18>=0 --> branch to instruction loaded at location -248
+	for (int i=0; i<forsize; i++){
+ b08:	e8730004 	lwi	r3, r19, 4 //loads in r3 the content found in r19+4
+ b0c:	30630001 	addik	r3, r3, 1 //r3=r3+1
+ b10:	f8730004 	swi	r3, r19, 4 //stores content of r3 into position made by sum content r19 with 4
+ b14:	e8930004 	lwi	r4, r19, 4 //loads in r4 the content found in r19+4
+ b18:	e8730024 	lwi	r3, r19, 36 //loads in r3 the content found in r19+36
+ b1c:	16432001 	cmp	r18, r3, r4 //r18=r3-r4
+ b20:	bc52fee4 	blti	r18, -284		// a04; if r18<=0 --> branch immediately to instruction at location -248
+		}
+	}
+}
+ b24:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ b28:	e9e10000 	lwi	r15, r1, 0 //loads in r15 the content of sp
+ b2c:	10330000 	addk	r1, r19, r0 //r1=r19
+ b30:	ea610010 	lwi	r19, r1, 16 //loads in r19 the content of sp+16
+ b34:	eac10014 	lwi	r22, r1, 20 //loads in r15 the content of sp+20
+ b38:	eae10018 	lwi	r23, r1, 24 //loads in r15 the content of sp+24
+ b3c:	3021001c 	addik	r1, r1, 28 //r1=r1+28 sp+28
+ b40:	b60f0008 	rtsd	r15, 8 //return from subroutine: branch to r15+8
+ b44:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+
+00000b48 <__interrupt_handler>:
+ b48:	3021ffac 	addik	r1, r1, -84
+ b4c:	f9e10000 	swi	r15, r1, 0
+ b50:	f8210020 	swi	r1, r1, 32
+ b54:	f8610024 	swi	r3, r1, 36
+ b58:	f8810028 	swi	r4, r1, 40
+ b5c:	f8a1002c 	swi	r5, r1, 44
+ b60:	f8c10030 	swi	r6, r1, 48
+ b64:	f8e10034 	swi	r7, r1, 52
+ b68:	f9010038 	swi	r8, r1, 56
+ b6c:	f921003c 	swi	r9, r1, 60
+ b70:	f9410040 	swi	r10, r1, 64
+ b74:	b0000000 	imm	0
+ b78:	30600d94 	addik	r3, r0, 3476	// d94 <MB_InterruptVectorTable>
+ b7c:	f9610044 	swi	r11, r1, 68
+ b80:	f9810048 	swi	r12, r1, 72
+ b84:	fa21004c 	swi	r17, r1, 76
+ b88:	95608001 	mfs	r11, rmsr
+ b8c:	e8830000 	lwi	r4, r3, 0 
+ b90:	e8a30004 	lwi	r5, r3, 4 
+ b94:	fa410050 	swi	r18, r1, 80
+ b98:	f961001c 	swi	r11, r1, 28
+ b9c:	99fc2000 	brald	r15, r4
+ ba0:	80000000 	or	r0, r0, r0 
+ ba4:	e9e10000 	lwi	r15, r1, 0 
+ ba8:	e961001c 	lwi	r11, r1, 28
+ bac:	e8210020 	lwi	r1, r1, 32
+ bb0:	940bc001 	mts	rmsr, r11
+ bb4:	e8610024 	lwi	r3, r1, 36
+ bb8:	e8810028 	lwi	r4, r1, 40
+ bbc:	e8a1002c 	lwi	r5, r1, 44
+ bc0:	e8c10030 	lwi	r6, r1, 48
+ bc4:	e8e10034 	lwi	r7, r1, 52
+ bc8:	e9010038 	lwi	r8, r1, 56
+ bcc:	e921003c 	lwi	r9, r1, 60
+ bd0:	e9410040 	lwi	r10, r1, 64
+ bd4:	e9610044 	lwi	r11, r1, 68
+ bd8:	e9810048 	lwi	r12, r1, 72
+ bdc:	ea21004c 	lwi	r17, r1, 76
+ be0:	ea410050 	lwi	r18, r1, 80
+ be4:	b62e0000 	rtid	r14, 0
+ be8:	30210054 	addik	r1, r1, 84
+
+00000bec <XUartLite_SendByte>:
+ bec:	30850008 	addik	r4, r5, 8
+ bf0:	e8640000 	lwi	r3, r4, 0
+ bf4:	a4630008 	andi	r3, r3, 8
+ bf8:	bc23fff8 	bnei	r3, -8		// bf0
+ bfc:	f8c50004 	swi	r6, r5, 4
+ c00:	b60f0008 	rtsd	r15, 8
+ c04:	80000000 	or	r0, r0, r0 
+
+00000c08 <XUartLite_RecvByte>:
+ c08:	30850008 	addik	r4, r5, 8
+ c0c:	e8640000 	lwi	r3, r4, 0
+ c10:	a4630001 	andi	r3, r3, 1
+ c14:	bc03fff8 	beqi	r3, -8		// c0c
+ c18:	e8650000 	lwi	r3, r5, 0
+ c1c:	b60f0008 	rtsd	r15, 8
+ c20:	a46300ff 	andi	r3, r3, 255
+
+00000c24 <XNullHandler>:
+ c24:	b60f0008 	rtsd	r15, 8
+ c28:	80000000 	or	r0, r0, r0 
+
+Disassembly of section .init:
+
+00000c2c <__init>:
+ c2c:	3021fff0 	addik	r1, r1, -16
+ c30:	d9e00800 	sw	r15, r0, r1
+ c34:	3160ffff 	addik	r11, r0, -1
+ c38:	940bc802 	mts	rshr, r11
+ c3c:	31600000 	addik	r11, r0, 0
+ c40:	940bc800 	mts	rslr, r11
+ c44:	b000ffff 	imm	-1
+ c48:	b9f4f640 	brlid	r15, -2496	// 288 <frame_dummy>
+ c4c:	80000000 	or	r0, r0, r0 //nop: delay of previous instruction but I do not want to make something in delay, so do nothing
+ c50:	b000ffff 	imm	-1
+ c54:	b9f4fa48 	brlid	r15, -1464	// 69c <__do_global_ctors_aux>
+ c58:	80000000 	or	r0, r0, r0
+ c5c:	c9e00800 	lw	r15, r0, r1
+ c60:	b60f0008 	rtsd	r15, 8
+ c64:	30210010 	addik	r1, r1, 16
+
+Disassembly of section .fini:
+
+00000c68 <__fini>:
+ c68:	3021fff0 	addik	r1, r1, -16
+ c6c:	d9e00800 	sw	r15, r0, r1
+ c70:	b000ffff 	imm	-1
+ c74:	b9f4f534 	brlid	r15, -2764	// 1a8 <__do_global_dtors_aux>
+ c78:	80000000 	or	r0, r0, r0
+ c7c:	c9e00800 	lw	r15, r0, r1
+ c80:	b60f0008 	rtsd	r15, 8
+ c84:	30210010 	addik	r1, r1, 16
